@@ -21,6 +21,7 @@ public class LCTS extends JFrame implements ActionListener {
 	
 	private final JButton DECO = new JButton();
 	private final JButton EXIT = new JButton();
+	private final JButton PINTOP = new JButton();
 
 	private static final Color transBG = new Color(0 ,0, 0, 0);
 	//Constructor
@@ -36,7 +37,21 @@ public class LCTS extends JFrame implements ActionListener {
 		// setLocation(200, 200);
 		setLayout(null);
 
-		DECO.setBounds(0, 10, 10, 10);
+		EXIT.setBounds(0, 0, 10, 10);
+		EXIT.setBackground(Color.RED);
+		EXIT.addActionListener((ActionEvent evt) -> {
+			System.exit(0);
+		});
+		add(EXIT);
+
+		PINTOP.setBounds(0, 10, 10, 10);
+		PINTOP.setBackground(Color.GREEN);
+		PINTOP.addActionListener((ActionEvent evt) -> {
+			setAlwaysOnTop(!isAlwaysOnTop());
+		});
+		add(PINTOP);
+
+		DECO.setBounds(0, 20, 10, 10);
 		DECO.setBackground(Color.BLUE);
 		DECO.addActionListener((ActionEvent evt) -> {
 			dispose();
@@ -50,13 +65,6 @@ public class LCTS extends JFrame implements ActionListener {
 			setVisible(true);
 		});
 		add(DECO);
-
-		EXIT.setBounds(0, 0, 10, 10);
-		EXIT.setBackground(Color.RED);
-		EXIT.addActionListener((ActionEvent evt) -> {
-			System.exit(0);
-		});
-		add(EXIT);
 
 		TIME.setBounds(0, 180, 600, 50);
 		TIME.setBackground(Color.LIGHT_GRAY);
